@@ -9,7 +9,7 @@ interface ProductDetailProps {
 
 const ProductDetail = ({ product }: ProductDetailProps) => {
   return (
-    <div className="flex flex-col sm:flex-row gap-6 pt-11 ">
+    <div className="flex flex-col sm:flex-row gap-6 ">
       <div className="relative h-[600px] w-full sm:w-1/2 ">
         <Image
           src={urlFor(product.images && product.images[0]).url()}
