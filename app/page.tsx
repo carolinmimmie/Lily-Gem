@@ -32,7 +32,7 @@ export default async function Home() {
   return (
     <div>
       <Hero
-        imageUrl="/images/hero2.jpg"
+        imageUrl="/images/hero1.jpg"
         titleText="New Collection"
         buttonText="Show Now"
       />

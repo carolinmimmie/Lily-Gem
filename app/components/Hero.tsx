@@ -13,7 +13,7 @@ const Hero = ({ imageUrl, titleText, buttonText }: HeroProps) => {
     <header className="relative w-full h-[66vh]">
       <Image
         src={imageUrl}
-        alt="hero image"
+        alt={imageUrl}
         fill
         className="object-cover"
       ></Image>
