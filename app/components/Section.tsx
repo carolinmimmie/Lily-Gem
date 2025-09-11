@@ -11,7 +11,7 @@ const Section = ({ title, children }: SectionProps) => {
       <h2 className="text-2xl font-light tracking-wide mb-8 text-center">
         {title}
       </h2>
-      <div className="bg-fuchsia-50">{children}</div>
+      <div className="flex flex-wrap gap-4">{children}</div>
     </section>
   );
 };

@@ -9,13 +9,12 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   return (
-    <div className="flex flex-col gap-2 ">
-      <div className="relative w-full">
+    <div className="flex flex-col gap-4 flex-1 min-w-[250px]">
+      <div className="relative w-full h-[300px]">
         <Image
           src={urlFor(product.images && product.images[0]).url()}
           alt={product.name}
-          height={100}
-          width={100}
+          fill
           objectFit="cover"
         ></Image>
       </div>
