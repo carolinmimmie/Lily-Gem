@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="flex flex-col gap-6 mb-6">
           <Link
             href="/"
-            className="text-3xl font-bold tracking-widest uppercase"
+            className="text-xl md:text-3xl  font-bold tracking-widest uppercase"
           >
             Lily Gem
           </Link>

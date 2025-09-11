@@ -2,7 +2,7 @@ import Link from "next/link";
 import React from "react";
 
 interface ButtonProps {
-  titleText: string;
+  titleText?: string;
   buttonText: string;
   href: string;
   type?: "button" | "submit" | "reset";

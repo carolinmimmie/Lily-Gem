@@ -4,12 +4,15 @@ import { AiOutlineShopping } from "react-icons/ai";
 
 export const Navbar = () => {
   return (
-    <nav className="w-full h-[70px] fixed uppercase bg-white z-30">
+    <nav className="w-full h-[70px] uppercase bg-white z-30">
       <div className=" h-full flex justify-between items-center px-12 ">
         <Link href="/shop" className="text-[14px] font-light tracking-widest">
           Shop
         </Link>
-        <Link href="/" className="text-3xl font-bold tracking-widest">
+        <Link
+          href="/"
+          className="text-xl md:text-3xl font-bold tracking-widest"
+        >
           Lily Gem
         </Link>
         <button className="relative text-[26px] cursor-pointer">
@@ -19,7 +22,6 @@ export const Navbar = () => {
           </span>
         </button>
       </div>
-      s
     </nav>
   );
 };

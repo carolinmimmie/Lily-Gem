@@ -2,6 +2,7 @@ import { Product } from "@/types/product";
 import React from "react";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
+import Link from "next/link";
 
 interface ProductCardProps {
   product: Product;
@@ -9,7 +10,10 @@ interface ProductCardProps {
 
 const ProductCard = ({ product }: ProductCardProps) => {
   return (
-    <div className="flex flex-col gap-4 flex-1 min-w-[250px]">
+    <Link
+      href={`/product/${product.slug.current}`}
+      className="flex flex-col gap-4 flex-1 min-w-[250px]"
+    >
       <div className="relative w-full h-[300px]">
         <Image
           src={urlFor(product.images && product.images[0]).url()}
@@ -18,13 +22,13 @@ const ProductCard = ({ product }: ProductCardProps) => {
           objectFit="cover"
         ></Image>
       </div>
-      <div className="flex flex-col items-center gap-2">
-        <h3 className="text-sm font-extralight tracking-widest">
+      <div className="flex flex-col items-left gap-2">
+        <h3 className="text-xs font-extralight tracking-widest">
           {product.name}
         </h3>
-        <p className="text-sm font-light tracking-wide">{product.price}</p>
+        <p className="text-xs font-light tracking-wide">{product.price} kr</p>
       </div>
-    </div>
+    </Link>
   );
 };
 
