@@ -12,6 +12,7 @@ const Hero = ({ imageUrl, titleText, buttonText }: HeroProps) => {
   return (
     <header className="relative w-full h-[66vh]">
       <Image
+        priority
         src={imageUrl}
         alt={imageUrl}
         fill

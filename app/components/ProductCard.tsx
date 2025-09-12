@@ -14,8 +14,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
       href={`/product/${product.slug.current}`}
       className="flex flex-col gap-4 flex-1 min-w-[250px]"
     >
-      <div className="relative w-full h-[300px]">
+      <div className="relative w-full h-[400px]">
         <Image
+          priority
           src={urlFor(product.images && product.images[0]).url()}
           alt={product.name}
           fill

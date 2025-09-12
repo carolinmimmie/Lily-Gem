@@ -9,8 +9,8 @@ interface ProductDetailProps {
 
 const ProductDetail = ({ product }: ProductDetailProps) => {
   return (
-    <div className="flex flex-col sm:flex-row gap-6 ">
-      <div className="relative h-[600px] w-full sm:w-1/2 ">
+    <div className="flex flex-col sm:flex-row gap-6 px-8 pb-12 pt-26 tracking-widest">
+      <div className="relative h-[400px] sm:h-[770px] w-full sm:w-1/2 ">
         <Image
           src={urlFor(product.images && product.images[0]).url()}
           alt={product.name}
@@ -18,10 +18,17 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
           objectFit="cover"
         ></Image>
       </div>
-      <div className="flex flex-col sm:w-1/2 p-4">
-        <h4>{product.name}</h4>
-        <p>{product.description}</p>
-        <button className="bg-black text-white px-4 py-2">Add to cart</button>
+      <div className="flex flex-col sm:w-1/2 justify-between gap-4">
+        <div className="flex flex-col gap-4  sm:gap-10">
+          <h4 className="text-xl font-extralight">{product.name}</h4>
+          <p className="font-medium">{product.price} kr</p>
+          <p className="text-sm font-light ">{product.description}</p>
+        </div>
+        <div className="flex flex-col gap-22">
+          <button className="bg-black text-white px-4 py-2 uppercase font-medium">
+            Add to cart
+          </button>
+        </div>
       </div>
     </div>
   );

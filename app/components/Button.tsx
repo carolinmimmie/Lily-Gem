@@ -10,10 +10,12 @@ interface ButtonProps {
 
 const Button = ({ buttonText, titleText, href }: ButtonProps) => {
   return (
-    <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white space-y-4">
-      <h2 className="text-5xl font-thin">{titleText}</h2>
+    <div className="absolute inset-0 flex flex-col items-center justify-center text-center text-white space-y-4 tracking-widest ">
+      <h2 className="text-3xl font-medium">{titleText}</h2>
       <Link href={href}>
-        <button className="cursor-pointer text-white">{buttonText}</button>
+        <button className="cursor-pointer text-black border bg-white  border-black px-5 py-3 uppercase">
+          {buttonText}
+        </button>
       </Link>
     </div>
   );

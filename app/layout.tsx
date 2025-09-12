@@ -25,7 +25,7 @@ export default function RootLayout({
         className={`flex flex-col min-h-screen ${cormorant.variable} antialiased text-neutral-950`}
       >
         <Navbar />
-        <main className="flex-1">{children}</main>
+        {children}
         <Footer />
       </body>
     </html>
