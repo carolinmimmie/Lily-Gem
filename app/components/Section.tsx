@@ -7,8 +7,8 @@ interface SectionProps {
 
 const Section = ({ title, children }: SectionProps) => {
   return (
-    <section className="my-12 px-4 sm:px-8 lg:px-16">
-      <h2 className="text-2xl font-light tracking-wide mb-8 text-center">
+    <section className="my-8 px-4 sm:px-8 lg:px-16">
+      <h2 className="text-2xl font-light tracking-wide mb-4 text-center">
         {title}
       </h2>
       <div className="flex flex-wrap gap-4">{children}</div>
