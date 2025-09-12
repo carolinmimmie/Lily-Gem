@@ -2,19 +2,21 @@ import ProductDetail from "@/app/components/ProductDetail";
 import { client } from "@/sanity/lib/client";
 import { Product } from "@/types/product";
 import { groq } from "next-sanity";
+import { use } from "react";
 import React from "react";
 
-interface ProductPageProps {
-  params: {
-    slug: string;
-  };
-}
+// Nu är params deklarerat som Promise
+export default function ProductPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  // use löser promisen direkt
+  const { slug } = use(params);
 
-// Viktigt: lägg till "async function" istället för arrow function
-export default async function ProductPage({ params }: ProductPageProps) {
+  // Hämtar produkten från Sanity
   const query = groq`*[_type == "product" && slug.current == $slug][0]`;
-
-  const product: Product = await client.fetch(query, { slug: params.slug });
+  const product: Product = use(client.fetch(query, { slug }));
 
   return (
     <div>
