@@ -3,6 +3,7 @@ import { Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import { CartProvider } from "./context/CartContext";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -24,8 +25,10 @@ export default function RootLayout({
       <body
         className={`flex flex-col min-h-screen ${cormorant.variable} antialiased text-neutral-950`}
       >
-        <Navbar />
-        {children}
+        <CartProvider>
+          <Navbar />
+          <div>{children}</div>
+        </CartProvider>
         <Footer />
       </body>
     </html>

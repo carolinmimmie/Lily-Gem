@@ -2,6 +2,7 @@ import { Product } from "@/types/product";
 import React from "react";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
 interface ProductDetailProps {
   product: Product;
@@ -24,7 +25,17 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
           <p className="font-medium">{product.price} kr</p>
           <p className="text-sm font-light ">{product.description}</p>
         </div>
+
         <div className="flex flex-col gap-22">
+          <div className="flex gap-2 items-center text-center justify-center pointer">
+            <span>
+              <AiOutlineMinus />
+            </span>
+            <span>0</span>
+            <span>
+              <AiOutlinePlus />
+            </span>
+          </div>
           <button className="bg-black text-white px-4 py-2 uppercase font-medium">
             Add to cart
           </button>
