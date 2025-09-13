@@ -14,7 +14,7 @@ const Cart = () => {
         className="fixed inset-0 bg-black/50 z-40"
         onClick={handleClose}
       ></div>
-      <div className="fixed top-0 right-0 h-screen w-[30%] bg-white z-50 flex flex-col gap-6 p-4 ">
+      <div className="fixed top-0 right-0 h-screen w-full sm:w-[30%] bg-white z-50 flex flex-col gap-6 p-4 ">
         <div className="flex justify-center align-middle gap-2 tracking-widest uppercase text-xs">
           <button onClick={handleClose}>
             <AiOutlineLeft />
