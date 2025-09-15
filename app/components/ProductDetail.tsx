@@ -1,14 +1,17 @@
+"use client";
 import { Product } from "@/types/product";
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
-import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
+import { CartContext } from "../context/CartContext";
 
 interface ProductDetailProps {
   product: Product;
 }
 
 const ProductDetail = ({ product }: ProductDetailProps) => {
+  const { addProduct, quantity } = useContext(CartContext);
+
   return (
     <div className="flex flex-col sm:flex-row gap-6 px-8 pb-12 pt-26 tracking-widest">
       <div className="relative h-[400px] sm:h-[770px] w-full sm:w-1/2 ">
@@ -27,16 +30,10 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
         </div>
 
         <div className="flex flex-col gap-22">
-          <div className="flex gap-2 items-center text-center justify-center pointer">
-            <span>
-              <AiOutlineMinus />
-            </span>
-            <span>0</span>
-            <span>
-              <AiOutlinePlus />
-            </span>
-          </div>
-          <button className="bg-black text-white px-4 py-2 uppercase font-medium">
+          <button
+            className="bg-black text-white px-4 py-2 uppercase font-medium"
+            onClick={() => addProduct(product, quantity)}
+          >
             Add to cart
           </button>
         </div>

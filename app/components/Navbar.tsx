@@ -7,7 +7,7 @@ import { CartContext } from "../context/CartContext";
 
 export const Navbar = () => {
   //Kalla på contextet
-  const { showCart, setShowCart } = useContext(CartContext);
+  const { showCart, setShowCart, totalQuantity } = useContext(CartContext);
 
   const handleOpen = () => {
     setShowCart(!showCart);
@@ -32,7 +32,7 @@ export const Navbar = () => {
           >
             <AiOutlineShopping />
             <span className="absolute text-[11px] top-0 right-[-8px] bg-neutral-950 text-white w-[16px] h-[16px] rounded-3xl text-center font-bold">
-              0
+              {totalQuantity}
             </span>
           </button>
         </div>

@@ -36,3 +36,8 @@ export interface Product {
   images: SanityImage[];
   category: Category; // ← referensen expanderad till hela objektet
 }
+
+export interface CartItem {
+  product: Product;
+  quantity: number;
+}
