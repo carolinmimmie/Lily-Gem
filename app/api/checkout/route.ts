@@ -29,7 +29,7 @@ export const POST = async (request: Request) => {
       payment_method_types: ["card"],
       line_items: lineItems,
       mode: "payment",
-      success_url: `https://lily-gem-a9mk.vercel.app/sucess`,
+      success_url: `https://lily-gem-a9mk.vercel.app/success`,
       cancel_url: `https://lily-gem-a9mk.vercel.app/`,
     });
 
