@@ -29,10 +29,8 @@ export const POST = async (request: Request) => {
       payment_method_types: ["card"],
       line_items: lineItems,
       mode: "payment",
-      success_url: `http://localhost:3000/success`,
-      cancel_url: `http://localhost:3000/`,
-      // `https://lily-gem-a9mk.vercel.app/sucess`
-      // `https://lily-gem-a9mk.vercel.app/`
+      success_url: `https://lily-gem-a9mk.vercel.app/sucess`,
+      cancel_url: `https://lily-gem-a9mk.vercel.app/`,
     });
 
     if (!session.url) throw new Error("Failed to create Stripe session");
