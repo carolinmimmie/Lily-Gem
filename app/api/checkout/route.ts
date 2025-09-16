@@ -1,13 +1,7 @@
 import "server-only";
 import { NextResponse } from "next/server";
-import { headers } from "next/headers";
-import Stripe from "stripe";
 import { CartItem } from "@/types/product"; // dina typer
-
-// Stripe-instans
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  apiVersion: "2025-08-27.basil",
-});
+import { stripe } from "@/lib/stripe";
 
 export const POST = async (request: Request) => {
   try {
