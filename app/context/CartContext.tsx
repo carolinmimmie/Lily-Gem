@@ -1,6 +1,4 @@
 "use client";
-
-import { product } from "@/sanity/schemas/product-schema";
 import { CartItem, Product } from "@/types/product";
 import {
   createContext,
@@ -41,6 +39,7 @@ export interface CartContextType {
   setTotalPrice: Dispatch<SetStateAction<number>>;
   toggleCartItemQuantity: (id: string, value: "plus" | "minus") => void;
   removeItemFromCart: (product: CartItem) => void;
+  handleCheckout: (cartItems: CartItem[]) => Promise<void>;
 }
 
 // -------------------------------
@@ -64,6 +63,7 @@ export const CartContext = createContext<CartContextType>({
   setTotalPrice: () => {},
   toggleCartItemQuantity: () => {},
   removeItemFromCart: () => {},
+  handleCheckout: async () => {},
 });
 
 // -------------------------------
@@ -229,6 +229,31 @@ export const CartProvider = ({ children }: CartProviderProps) => {
     );
   };
 
+  const handleCheckout = async (cartItems: CartItem[]) => {
+    try {
+      const res = await fetch("/api/checkout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ products: cartItems }),
+      });
+
+      const data = await res.json().catch(() => null);
+
+      if (!data || !data.url) {
+        console.error(
+          "Stripe session URL saknas eller fetch returnerade fel:",
+          data
+        );
+        return;
+      }
+
+      // Redirecta användaren till Stripe Checkout
+      window.location.href = data.url;
+    } catch (err) {
+      console.error("Error initiating checkout:", err);
+    }
+  };
+
   return (
     <CartContext.Provider
       value={{
@@ -247,6 +272,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
         setTotalPrice,
         toggleCartItemQuantity,
         removeItemFromCart,
+        handleCheckout,
       }}
     >
       {children}

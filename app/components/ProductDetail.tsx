@@ -31,7 +31,7 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
 
         <div className="flex flex-col gap-22">
           <button
-            className="bg-black text-white px-4 py-2 uppercase font-medium"
+            className="bg-black text-white px-4 py-2 uppercase font-medium cursor-pointer"
             onClick={() => addProduct(product, quantity)}
           >
             Add to cart

@@ -13,6 +13,7 @@ const Cart = () => {
     totalPrice,
     toggleCartItemQuantity,
     removeItemFromCart,
+    handleCheckout,
   } = useContext(CartContext);
 
   const handleClose = () => {
@@ -60,6 +61,7 @@ const Cart = () => {
               <div className="flex flex-col gap-4">
                 <div className="flex flex-row items-center justify-center pointer text-[14px] gap-6 mt-auto">
                   <span
+                    className="cursor-pointer"
                     onClick={() =>
                       toggleCartItemQuantity(cartitem.product._id, "minus")
                     }
@@ -68,7 +70,7 @@ const Cart = () => {
                   </span>
                   <span>{cartitem.quantity}</span>
                   <span
-                    className="text-[14px]"
+                    className="text-[14px] cursor-pointer"
                     onClick={() =>
                       toggleCartItemQuantity(cartitem.product._id, "plus")
                     }
@@ -76,6 +78,7 @@ const Cart = () => {
                     <AiOutlinePlus />
                   </span>
                   <button
+                    className="    cursor-pointer"
                     onClick={() => {
                       removeItemFromCart(cartitem);
                     }}
@@ -91,7 +94,10 @@ const Cart = () => {
           <div className="flex flex-col gap-4 p-4 border-t border-gray-300 text-center mt-auto">
             <div>Amount: {totalPrice} kr</div>
             <div>
-              <button className="bg-black text-white px-4 py-2 uppercase font-medium w-full">
+              <button
+                className="bg-black text-white px-4 py-2 uppercase font-medium w-full"
+                onClick={() => handleCheckout(cartItems)}
+              >
                 To checkout
               </button>
             </div>
