@@ -27,8 +27,11 @@ const Cart = () => {
       ></div>
       <div className="fixed top-0 right-0 h-screen w-full sm:w-[30%] bg-white z-50 flex flex-col gap-6 tracking-widest">
         <div className=" border-b border-gray-300">
-          <div className="p-4 flex justify-center align-middle gap-2 uppercase text-xs">
-            <button onClick={handleClose} className="text-[14px]">
+          <div
+            onClick={handleClose}
+            className="p-4 flex justify-center align-middle gap-2 uppercase text-xs cursor-pointer"
+          >
+            <button className="text-[14px] cursor-pointer">
               <AiOutlineLeft />
             </button>
             <span>Continue Shopping</span>
@@ -40,7 +43,7 @@ const Cart = () => {
         {cartItems.map((cartitem) => (
           <div key={cartitem.product._id} className="border-b border-gray-300">
             <div className="flex gap-4 p-4 justify-between">
-              <div className="relative h-[60px] w-[48px]">
+              <div className="relative h-[60px] min-w-[52px]">
                 <Image
                   src={urlFor(
                     cartitem.product.images && cartitem.product.images[0]
@@ -95,7 +98,7 @@ const Cart = () => {
             <div>Amount: {totalPrice} kr</div>
             <div>
               <button
-                className="bg-black text-white px-4 py-2 uppercase font-medium w-full"
+                className="bg-black text-white px-4 py-2 uppercase font-medium w-full cursor-pointer"
                 onClick={() => handleCheckout(cartItems)}
               >
                 To checkout

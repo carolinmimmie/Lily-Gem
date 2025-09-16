@@ -10,7 +10,7 @@ interface ProductDetailProps {
 }
 
 const ProductDetail = ({ product }: ProductDetailProps) => {
-  const { addProduct, quantity } = useContext(CartContext);
+  const { addProduct, quantity, setShowCart } = useContext(CartContext);
 
   return (
     <div className="flex flex-col sm:flex-row gap-6 px-8 pb-12 pt-26 tracking-widest">
@@ -32,7 +32,10 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
         <div className="flex flex-col gap-22">
           <button
             className="bg-black text-white px-4 py-2 uppercase font-medium cursor-pointer"
-            onClick={() => addProduct(product, quantity)}
+            onClick={() => {
+              addProduct(product, quantity);
+              setShowCart(true);
+            }}
           >
             Add to cart
           </button>
