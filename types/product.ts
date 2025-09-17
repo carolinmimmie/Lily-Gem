@@ -17,6 +17,7 @@ export interface Category {
     current: string;
   };
   description: string;
+  categoryImage: SanityImage;
 }
 
 // Produktinterface med kategori
