@@ -12,7 +12,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <Link
       href={`/product/${product.slug.current}`}
-      className="flex flex-col gap-4 flex-1 min-w-[250px]"
+      className="flex flex-col gap-4 flex-1 min-w-[382px]"
     >
       <div className="relative w-full h-[400px]">
         <Image
