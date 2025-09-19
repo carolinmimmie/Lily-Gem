@@ -14,9 +14,9 @@ const CategoryCard = ({ categories }: CategoryCardProps) => {
         <Link
           key={cat._id}
           href={`/shop/category/${cat.slug.current}`}
-          className="flex flex-col gap-4 flex-1 min-w-[350px]"
+          className="flex flex-col gap-4 w-full max-w-[300px] mx-auto"
         >
-          <div className="relative w-full h-[400px]">
+          <div className="relative w-full h-[380px] sm:h-[480px]">
             <span className="absolute inset-0 z-10 flex items-center justify-center text-white text-3xl font-medium tracking-widest">
               {cat.title}
             </span>

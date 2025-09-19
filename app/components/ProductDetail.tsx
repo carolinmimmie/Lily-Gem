@@ -13,7 +13,7 @@ const ProductDetail = ({ product }: ProductDetailProps) => {
   const { addProduct, quantity, setShowCart } = useContext(CartContext);
 
   return (
-    <div className="flex flex-col sm:flex-row gap-6 px-4 pb-12 pt-26 tracking-widest">
+    <div className="flex flex-col sm:flex-row gap-6 px-12 my-8 tracking-widest">
       <div className="relative h-[400px] sm:h-[770px] w-full sm:w-1/2 ">
         <Image
           src={urlFor(product.images && product.images[0]).url()}

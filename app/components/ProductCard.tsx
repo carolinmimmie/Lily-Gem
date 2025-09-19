@@ -12,9 +12,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <Link
       href={`/product/${product.slug.current}`}
-      className="flex flex-col gap-4 flex-1 min-w-[382px]"
+      className="flex flex-col gap-4 w-full max-w-[300px] mx-auto"
     >
-      <div className="relative w-full h-[400px]">
+      <div className="relative w-full h-[300px] sm:h-[380px]">
         <Image
           priority
           src={urlFor(product.images && product.images[0]).url()}

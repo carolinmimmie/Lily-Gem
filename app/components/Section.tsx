@@ -11,7 +11,9 @@ const Section = ({ title, children }: SectionProps) => {
       <h2 className="text-2xl font-light tracking-wide mb-4 text-center">
         {title}
       </h2>
-      <div className="flex flex-wrap gap-4">{children}</div>
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+        {children}
+      </div>
     </section>
   );
 };
