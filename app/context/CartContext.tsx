@@ -26,6 +26,10 @@ interface CartProviderProps {
 export interface CartContextType {
   showCart: boolean;
   setShowCart: Dispatch<SetStateAction<boolean>>;
+  showSearchModal: boolean;
+  setShowSearchModal: Dispatch<SetStateAction<boolean>>;
+  searchTerm: string;
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
   quantity: number;
   setQuantity: Dispatch<SetStateAction<number>>;
   increaseQuantity: () => void;
@@ -50,6 +54,10 @@ export interface CartContextType {
 export const CartContext = createContext<CartContextType>({
   showCart: false, // startvärde: carten är dold
   setShowCart: () => {}, // tom funktion för default
+  showSearchModal: false,
+  setShowSearchModal: () => {},
+  searchTerm: "",
+  setSearchTerm: () => {},
   quantity: 1, // startvärde: carten är dold
   setQuantity: () => {}, // tom funktion för default
   increaseQuantity: () => {},
@@ -74,6 +82,8 @@ export const CartContext = createContext<CartContextType>({
 // showCart och setShowCart.
 export const CartProvider = ({ children }: CartProviderProps) => {
   const [showCart, setShowCart] = useState(false);
+  const [showSearchModal, setShowSearchModal] = useState(false);
+  const [searchTerm, setSearchTerm] = useState<string>("");
   const [quantity, setQuantity] = useState(1);
   // state för våran cart som börjar med en tom lista
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
@@ -259,6 +269,10 @@ export const CartProvider = ({ children }: CartProviderProps) => {
       value={{
         showCart,
         setShowCart,
+        showSearchModal,
+        setShowSearchModal,
+        searchTerm,
+        setSearchTerm,
         quantity,
         setQuantity,
         increaseQuantity,

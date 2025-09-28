@@ -10,14 +10,6 @@ import { Product } from "@/types/product";
 import CategoryCard from "./components/CategoryCard";
 
 export default async function Home() {
-  // const products: Product[] = await client.fetch(groq`*[_type=="product"]`);
-  // console.log(products);
-
-  // Fetcha kategorierna
-  // Fetcha Nyheter
-
-  // Fetcha producten är en sanity funtion
-
   const newsProducts: Product[] = await client.fetch(
     groq`*[_type=="product"] | order(_createdAt desc) [0...4]`
   );
@@ -49,7 +41,6 @@ export default async function Home() {
       <DualHero />
       <Bestsellers bestSellingProducts={bestSellingProducts} />
       <CategoryCard categories={categories} />
-
       <Form />
     </div>
   );

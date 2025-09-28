@@ -1,18 +1,14 @@
-import { client } from "@/sanity/lib/client";
-import { Category, Product } from "@/types/product";
-import { groq } from "next-sanity";
 import React from "react";
 import ProductCard from "../components/ProductCard";
-import Section from "../components/Section";
 import Link from "next/link";
 
+import { Product, Category } from "@/types/product";
+import { getAllCategories, getAllProducts } from "@/lib/api";
+
 const ShopPage = async () => {
-  const products: Product[] = await client.fetch(groq`*[_type=="product"]`);
-  console.log(products);
-  // Fetcha alla kategorier
-  const categories = await client.fetch(
-    groq`*[_type=="category"] | order(title asc)`
-  );
+  const products: Product[] = await getAllProducts();
+  const categories: Category[] = await getAllCategories();
+
   return (
     <section className="my-8 px-4 sm:px-8 lg:px-16">
       <h2 className="text-2xl font-light tracking-wide mb-4 text-center">
@@ -36,7 +32,8 @@ const ShopPage = async () => {
           ))}
         </div>
       </div>
-      {/* Visa kategorier */}
+
+      {/* Visa produkter */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
         {products.map((product) => (
           <ProductCard product={product} key={product._id} />
