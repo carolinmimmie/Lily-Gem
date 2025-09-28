@@ -3,20 +3,21 @@ import ProductCard from "@/app/components/ProductCard";
 import Section from "@/app/components/Section";
 import { getProductsByCategory } from "@/lib/api";
 import { Product } from "@/types/product";
+import { use } from "react";
 import React from "react";
 
-export default async function CategoryPage({
+export default function CategoryPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  // plocka ut slug direkt
-  const { slug } = params;
+  // Hämta slug från params
+  const { slug } = use(params);
 
-  // vänta in data
-  const products: Product[] = await getProductsByCategory(slug);
+  // Anropa service-funktion istället för att skriva query direkt
+  const products: Product[] = use(getProductsByCategory(slug));
 
-  // titel från första produktens kategori
+  // Hämta titel från första produktens kategori
   const title = products[0]?.category.title ?? "Products";
 
   return (
